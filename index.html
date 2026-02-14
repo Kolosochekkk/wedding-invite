@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>17.06.2026 — Свадьба</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#F6F4EF;
+  --text:#2E2E2E;
+  --yellow:#E6DC8F;
+  --pink:#D487A5;
+  --blue:#8CC6D0;
+  --green:#A8D672;
+  --lav:#C5A1D6;
+  --peach:#E9B57E;
+}
+
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:'Inter', sans-serif;
+  line-height:1.7;
+}
+
+section{
+  max-width:900px;
+  margin:auto;
+  padding:80px 20px;
+}
+
+h1,h2{
+  font-family:'Playfair Display', serif;
+  text-align:center;
+  margin-bottom:20px;
+}
+
+.hero{
+  height:90vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+}
+
+.hero h1{
+  font-size:52px;
+  font-weight:600;
+}
+
+.date{
+  font-size:22px;
+  margin-top:15px;
+  letter-spacing:2px;
+}
+
+.card{
+  background:white;
+  padding:40px;
+  border-radius:16px;
+  margin-bottom:40px;
+}
+
+.colors{
+  display:flex;
+  justify-content:center;
+  gap:15px;
+  flex-wrap:wrap;
+  margin-top:20px;
+}
+
+.color{
+  width:40px;
+  height:40px;
+  border-radius:50%;
+}
+
+.timeline p{
+  text-align:center;
+}
+
+form label{
+  display:block;
+  margin-top:20px;
+  font-weight:500;
+}
+
+input, select, textarea{
+  width:100%;
+  padding:12px;
+  margin-top:5px;
+  border:1px solid #ddd;
+  border-radius:8px;
+  font-family:inherit;
+}
+
+button{
+  margin-top:30px;
+  padding:14px;
+  background:var(--pink);
+  color:white;
+  border:none;
+  border-radius:10px;
+  cursor:pointer;
+  width:100%;
+}
+
+footer{
+  text-align:center;
+  padding:50px;
+  opacity:0.6;
+}
+
+@media(max-width:600px){
+  .hero h1{font-size:34px}
+  section{padding:60px 20px}
+}
+</style>
+</head>
+
+<body>
+
+<section class="hero">
+  <h1>Мы ждём вас</h1>
+  <div class="date">17.06.2026</div>
+  <div>Стайки · Усадьба «Багдановичи»</div>
+</section>
+
+<section>
+  <div class="card">
+    <h2>Когда и где</h2>
+    <p style="text-align:center">
+      Сбор гостей — 15:30<br>
+      Церемония — 16:00<br>
+      Ужин и праздник — 17:00
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>Дресс-код</h2>
+    <p style="text-align:center">
+      Летние пастельные оттенки, лёгкие ткани, элегантность.
+    </p>
+
+    <div class="colors">
+      <div class="color" style="background:var(--yellow)"></div>
+      <div class="color" style="background:var(--pink)"></div>
+      <div class="color" style="background:var(--blue)"></div>
+      <div class="color" style="background:var(--green)"></div>
+      <div class="color" style="background:var(--lav)"></div>
+      <div class="color" style="background:var(--peach)"></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="card">
+    <h2>Подтвердите присутствие</h2>
+
+    <form action="https://formsubmit.co/YOUR_EMAIL" method="POST">
+
+      <label>Ваше имя</label>
+      <input type="text" name="name" required>
+
+      <label>Вы будете с нами?</label>
+      <select name="attendance" required>
+        <option>Да</option>
+        <option>Нет</option>
+      </select>
+
+      <label>Предпочитаемые напитки</label>
+      <select name="drinks">
+        <option>Игристое</option>
+        <option>Белое вино</option>
+        <option>Красное вино</option>
+        <option>Коктейли</option>
+        <option>Крепкий алкоголь</option>
+        <option>Безалкогольные</option>
+      </select>
+
+      <label>Нужен трансфер до усадьбы?</label>
+      <select name="transfer_to">
+        <option>Да</option>
+        <option>Нет</option>
+      </select>
+
+      <label>Нужен трансфер обратно?</label>
+      <select name="transfer_back">
+        <option>Да</option>
+        <option>Нет</option>
+      </select>
+
+      <label>Диетические ограничения</label>
+      <textarea name="diet"></textarea>
+
+      <label>Песня для плейлиста</label>
+      <input type="text" name="song">
+
+      <input type="hidden" name="_captcha" value="false">
+
+      <button type="submit">Отправить</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  Будем рады разделить этот день вместе с вами
+</footer>
+
+</body>
+</html>
