@@ -31,7 +31,7 @@ color:var(--text);
 line-height:1.65;
 }
 
-/* цветочный фон */
+/* фон */
 
 body::before{
 content:"";
@@ -93,7 +93,7 @@ font-size:20px;
 letter-spacing:2px;
 }
 
-/* контейнер приглашения */
+/* контейнер */
 
 .invitation{
 max-width:860px;
@@ -144,8 +144,6 @@ background:var(--accent);
 color:white;
 }
 
-/* сердечко */
-
 .day.active::after{
 content:"❤";
 position:absolute;
@@ -175,7 +173,17 @@ color:#C77C96;
 color:var(--muted);
 }
 
-/* фото места */
+/* стрелка */
+
+.timeline-arrow{
+margin:10px 0;
+}
+
+.timeline-arrow svg{
+opacity:0.8;
+}
+
+/* фото */
 
 .place-photo{
 width:100%;
@@ -263,8 +271,6 @@ padding:20px;
 
 <body>
 
-<!-- HERO -->
-
 <section class="hero">
 
 <div class="hero-inner">
@@ -285,8 +291,6 @@ padding:20px;
 
 <main class="invitation">
 
-<!-- ДАТА -->
-
 <section class="block">
 
 <h2>Дата</h2>
@@ -303,8 +307,6 @@ padding:20px;
 
 </section>
 
-<!-- ТАЙМИНГ -->
-
 <section class="block">
 
 <h2>Тайминг</h2>
@@ -316,6 +318,16 @@ padding:20px;
 <div class="timeline-text">Сбор гостей</div>
 </div>
 
+<div class="timeline-arrow">
+<svg viewBox="0 0 120 60" width="80">
+<path d="M10 10 C60 80, 80 -20, 110 40"
+stroke="#E89AB2"
+stroke-width="3"
+fill="none"
+stroke-linecap="round"/>
+</svg>
+</div>
+
 <div class="timeline-item">
 <div class="timeline-time">16:00</div>
 <div class="timeline-text">Церемония</div>
@@ -324,8 +336,6 @@ padding:20px;
 </div>
 
 </section>
-
-<!-- МЕСТО -->
 
 <section class="block">
 
@@ -345,8 +355,6 @@ target="_blank">
 </a>
 
 </section>
-
-<!-- ДРЕСС-КОД -->
 
 <section class="block">
 
@@ -370,8 +378,6 @@ target="_blank">
 
 </section>
 
-<!-- ЦВЕТЫ -->
-
 <section class="block">
 
 <h2>Цветы</h2>
@@ -387,8 +393,6 @@ target="_blank">
 </p>
 
 </section>
-
-<!-- АНКЕТА -->
 
 <section class="block">
 
