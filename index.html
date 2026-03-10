@@ -11,12 +11,12 @@
 <style>
 
 :root{
---bg:#FBF8F3;
---paper:#FFFFFF;
+--bg:#F3EDE6;
+--paper:#FFF9F5;
 --text:#2B2B2B;
 --muted:#8C8686;
---accent:#E89AB2;
---line:#F1E6E3;
+--accent:#E595AD;
+--line:#EADFD9;
 }
 
 *{
@@ -39,7 +39,7 @@ position:fixed;
 inset:0;
 background:url("flowers-bg.jpg") repeat;
 background-size:320px;
-opacity:0.05;
+opacity:0.03;
 pointer-events:none;
 z-index:-1;
 }
@@ -99,7 +99,7 @@ letter-spacing:2px;
 max-width:860px;
 margin:-80px auto 80px;
 padding:30px;
-background:rgba(255,255,255,.95);
+background:var(--paper);
 border-radius:24px;
 box-shadow:0 20px 50px rgba(0,0,0,0.06);
 }
@@ -135,7 +135,7 @@ margin-top:20px;
 position:relative;
 padding:12px 16px;
 border-radius:10px;
-background:#F3F1EE;
+background:#F1ECE7;
 font-weight:500;
 }
 
@@ -150,24 +150,23 @@ position:absolute;
 top:-10px;
 right:-8px;
 font-size:16px;
-color:#E89AB2;
+color:#E595AD;
 }
 
 /* ТАЙМИНГ */
 
 .timeline{
 position:relative;
-max-width:420px;
-margin:auto;
-padding-right:80px;
+max-width:320px;
+margin:0 auto;
 }
 
 .timeline-row{
-margin:35px 0;
+margin:40px 0;
 }
 
 .timeline-time{
-font-size:26px;
+font-size:28px;
 color:#C77C96;
 }
 
@@ -175,25 +174,25 @@ color:#C77C96;
 color:var(--muted);
 }
 
-/* БОЛЬШАЯ ИЗОГНУТАЯ СТРЕЛКА */
+/* стрелка */
 
 .timeline-arrow{
 position:absolute;
-right:-20px;
+right:-80px;
 top:10px;
 width:140px;
 height:170px;
 }
 
 .arrow-path{
-stroke:#E89AB2;
+stroke:#E595AD;
 stroke-width:4;
 fill:none;
 stroke-linecap:round;
 }
 
 .arrow-head{
-fill:#E89AB2;
+fill:#E595AD;
 }
 
 /* фото */
@@ -229,7 +228,7 @@ display:inline-block;
 margin-top:20px;
 padding:12px 24px;
 border-radius:999px;
-background:#E89AB2;
+background:var(--accent);
 color:white;
 text-decoration:none;
 transition:0.2s;
@@ -254,7 +253,7 @@ height:1450px;
 border:0;
 }
 
-/* финальный блок */
+/* финал */
 
 .final{
 text-align:center;
@@ -275,10 +274,6 @@ font-size:42px;
 .invitation{
 margin:-40px 15px 40px;
 padding:20px;
-}
-
-.timeline{
-padding-right:0;
 }
 
 .timeline-arrow{
@@ -344,14 +339,14 @@ display:none;
 <div class="timeline-text">Церемония</div>
 </div>
 
-<svg class="timeline-arrow" viewBox="0 0 220 200">
+<svg class="timeline-arrow" viewBox="0 0 200 200">
 
 <path
-d="M60 20 C200 40, 200 140, 100 160"
+d="M40 30 C150 40, 160 120, 90 150"
 class="arrow-path"/>
 
 <polygon
-points="95,155 115,160 100,140"
+points="85,145 105,150 92,132"
 class="arrow-head"/>
 
 </svg>
@@ -405,17 +400,23 @@ target="_blank">
 
 <h2>Цветы</h2>
 
-<div class="text-block">
-      <p>Мы очень любим цветы, но, к сожалению, не успеем в полной мере насладиться их красотой.</p>
-      <p>Вместо букета мы будем рады получить виниловую пластинку с вашим любимым исполнителем — для нас это станет тёплым и памятным подарком.</p>
-    </div>
-  </section>
+<p>
+Мы очень любим цветы, но, к сожалению,
+не успеем насладиться их красотой.
+</p>
+
+<p>
+Вместо букета будем рады получить
+виниловую пластинку с вашим любимым исполнителем.
+</p>
+
+</section>
 
 <section class="block">
 
 <h2>Анкета гостя</h2>
 
-<p>Пожалуйста, подтвердите своё присутствие, заполнив анкету ниже</p>
+<p>Пожалуйста подтвердите ваше присутствие</p>
 
 <div class="form-wrap">
 
