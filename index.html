@@ -18,9 +18,9 @@
 
 body{
 margin:0;
-font-family:'Inter', sans-serif;
-color:var(--text);
+font-family:'Inter',sans-serif;
 background:var(--bg);
+color:var(--text);
 }
 
 /* цветочный фон */
@@ -48,7 +48,7 @@ padding:80px 20px;
 }
 
 h2{
-font-family:'Playfair Display', serif;
+font-family:'Playfair Display',serif;
 text-align:center;
 margin-bottom:30px;
 }
@@ -56,21 +56,25 @@ margin-bottom:30px;
 /* HERO */
 
 .hero{
+width:100vw;
 height:100vh;
+
 display:flex;
 align-items:center;
 justify-content:center;
 text-align:center;
 
 background:
-linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.55)),
+linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.55)),
 url("hero.png") center/cover no-repeat;
 
 color:white;
+
+margin-left:calc(-50vw + 50%);
 }
 
 .hero h1{
-font-family:'Playfair Display', serif;
+font-family:'Playfair Display',serif;
 font-size:72px;
 margin:0;
 }
@@ -97,14 +101,13 @@ text-align:center;
 display:flex;
 justify-content:center;
 gap:12px;
-flex-wrap:wrap;
 margin-top:20px;
 }
 
 .day{
-padding:10px 14px;
-border-radius:8px;
+padding:10px 16px;
 background:#eee;
+border-radius:8px;
 }
 
 .day.active{
@@ -117,11 +120,6 @@ color:white;
 .time{
 font-size:22px;
 margin-top:20px;
-}
-
-.place{
-margin-top:10px;
-opacity:.8;
 }
 
 /* button */
@@ -145,7 +143,7 @@ border-radius:12px;
 
 /* mobile */
 
-@media(max-width:600px){
+@media(max-width:700px){
 
 .hero h1{
 font-size:42px;
@@ -225,10 +223,10 @@ padding:60px 20px;
 
 <h2>Место проведения</h2>
 
-<div class="place">
+<p>
 «Двор Стайки»<br>
 Усадебно-парковый комплекс Богдановичей
-</div>
+</p>
 
 <a class="btn"
 href="https://yandex.com/maps/-/CPUZeHJ6"
@@ -240,7 +238,7 @@ target="_blank">
 
 </section>
 
-<!-- ЦВЕТЫ -->
+<!-- ВМЕСТО ЦВЕТОВ -->
 
 <section>
 
