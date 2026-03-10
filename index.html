@@ -6,279 +6,333 @@
 
 <title>Юля & Андрей — 17.06.2026</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
-
 :root{
---bg:#F6F4EF;
---text:#2E2E2E;
---accent:#D487A5;
+  --bg:#F6F4EF;
+  --paper:#FFFDF8;
+  --text:#2E2E2E;
+  --muted:#7A6F6F;
+  --accent:#D487A5;
+  --line:#E9DDD8;
+}
+
+*{
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
 }
 
 body{
-margin:0;
-font-family:'Inter',sans-serif;
-background:var(--bg);
-color:var(--text);
+  margin:0;
+  font-family:'Inter', sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.65;
 }
-
-/* цветочный фон */
 
 body::before{
-content:"";
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:url("flowers-bg.jpg") repeat;
-background-size:320px;
-opacity:0.08;
-pointer-events:none;
-z-index:-1;
+  content:"";
+  position:fixed;
+  inset:0;
+  background:url("flowers-bg.jpg") repeat;
+  background-size:320px;
+  opacity:0.08;
+  pointer-events:none;
+  z-index:-1;
 }
 
-/* layout */
-
-section{
-max-width:900px;
-margin:auto;
-padding:80px 20px;
-}
-
-h2{
-font-family:'Playfair Display',serif;
-text-align:center;
-margin-bottom:30px;
-}
-
-/* HERO */
+/* hero */
 
 .hero{
-width:100vw;
-height:100vh;
+  width:100vw;
+  height:100vh;
+  margin-left:calc(-50vw + 50%);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  color:#fff;
+  background:
+    linear-gradient(rgba(0,0,0,.36), rgba(0,0,0,.52)),
+    url("hero.png") center/cover no-repeat;
+}
 
-display:flex;
-align-items:center;
-justify-content:center;
-text-align:center;
-
-background:
-linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.55)),
-url("hero.png") center/cover no-repeat;
-
-color:white;
-
-margin-left:calc(-50vw + 50%);
+.hero-inner{
+  padding:24px;
 }
 
 .hero h1{
-font-family:'Playfair Display',serif;
-font-size:72px;
-margin:0;
+  margin:0;
+  font-family:'Playfair Display', serif;
+  font-size:clamp(42px, 8vw, 82px);
+  font-weight:600;
+  text-shadow:0 8px 30px rgba(0,0,0,.35);
 }
 
-.hero p{
-letter-spacing:3px;
-margin-top:15px;
+.hero-date{
+  margin-top:14px;
+  letter-spacing:4px;
+  font-size:clamp(16px, 2vw, 24px);
+  text-transform:uppercase;
 }
 
-/* cards */
+.hero-place{
+  margin-top:10px;
+  font-size:clamp(14px, 1.8vw, 18px);
+  opacity:.95;
+}
 
-.card{
-background:white;
-border-radius:16px;
-padding:40px;
-margin-bottom:40px;
-box-shadow:0 10px 30px rgba(0,0,0,0.05);
-text-align:center;
+/* unified invitation sheet */
+
+.invitation{
+  max-width:860px;
+  margin: -72px auto 80px;
+  padding: 28px;
+  background:rgba(255,253,248,.92);
+  border:1px solid rgba(233,221,216,.9);
+  border-radius:28px;
+  box-shadow:
+    0 18px 45px rgba(54,34,34,.08),
+    0 4px 12px rgba(54,34,34,.04);
+  backdrop-filter: blur(3px);
+  position:relative;
+}
+
+.block{
+  padding:42px 18px;
+  text-align:center;
+}
+
+.block + .block{
+  border-top:1px solid var(--line);
+}
+
+h2{
+  margin:0 0 18px;
+  font-family:'Playfair Display', serif;
+  font-size:clamp(30px, 4vw, 42px);
+  font-weight:600;
+  color:#7e3f55;
+}
+
+.sub{
+  color:var(--muted);
+  margin:0 auto 16px;
+  max-width:620px;
 }
 
 /* calendar */
 
+.calendar-title{
+  margin-top:6px;
+  color:var(--muted);
+}
+
 .calendar{
-display:flex;
-justify-content:center;
-gap:12px;
-margin-top:20px;
+  display:flex;
+  justify-content:center;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-top:20px;
 }
 
 .day{
-padding:10px 16px;
-background:#eee;
-border-radius:8px;
+  min-width:54px;
+  padding:12px 14px;
+  border-radius:14px;
+  background:#F1ECE7;
+  color:#6E6363;
+  font-weight:500;
 }
 
 .day.active{
-background:var(--accent);
-color:white;
+  background:var(--accent);
+  color:#fff;
+  box-shadow:0 8px 20px rgba(212,135,165,.35);
 }
 
 /* timing */
 
-.time{
-font-size:22px;
-margin-top:20px;
+.timeline{
+  display:grid;
+  gap:18px;
+  max-width:420px;
+  margin:22px auto 0;
+}
+
+.timeline-item{
+  padding:14px 18px;
+  background:#fff;
+  border:1px solid #F1E7E3;
+  border-radius:16px;
+}
+
+.timeline-time{
+  font-size:28px;
+  font-weight:500;
+  color:#7e3f55;
+  line-height:1.1;
+}
+
+.timeline-text{
+  margin-top:6px;
+  color:var(--muted);
+}
+
+/* place / flowers */
+
+.text-block{
+  max-width:620px;
+  margin:0 auto;
+}
+
+.text-block p{
+  margin:12px 0;
 }
 
 /* button */
 
 .btn{
-display:inline-block;
-margin-top:20px;
-padding:12px 20px;
-background:var(--accent);
-color:white;
-text-decoration:none;
-border-radius:10px;
+  display:inline-block;
+  margin-top:22px;
+  padding:14px 26px;
+  border-radius:999px;
+  background:var(--accent);
+  color:#fff;
+  text-decoration:none;
+  font-weight:500;
+  transition:transform .2s ease, box-shadow .2s ease;
+  box-shadow:0 8px 20px rgba(212,135,165,.25);
+}
+
+.btn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 12px 24px rgba(212,135,165,.30);
 }
 
 /* iframe */
 
+.form-wrap{
+  margin-top:22px;
+  border-radius:20px;
+  overflow:hidden;
+  border:1px solid #EFE6E2;
+  background:#fff;
+}
+
 iframe{
-border:none;
-border-radius:12px;
+  display:block;
+  width:100%;
+  height:1450px;
+  border:0;
 }
 
 /* mobile */
 
-@media(max-width:700px){
+@media (max-width:700px){
+  .hero{
+    height:88vh;
+  }
 
-.hero h1{
-font-size:42px;
+  .invitation{
+    margin:-40px 14px 50px;
+    padding:16px;
+    border-radius:22px;
+  }
+
+  .block{
+    padding:30px 8px;
+  }
+
+  .day{
+    min-width:48px;
+    padding:10px 12px;
+  }
+
+  iframe{
+    height:1550px;
+  }
 }
-
-section{
-padding:60px 20px;
-}
-
-}
-
 </style>
 </head>
 
 <body>
 
-<!-- HERO -->
-
 <section class="hero">
-
-<div>
-
-<h1>Юля & Андрей</h1>
-<p>17 июня 2026</p>
-
-</div>
-
+  <div class="hero-inner">
+    <h1>Юля & Андрей</h1>
+    <div class="hero-date">17 июня 2026</div>
+    <div class="hero-place">«Двор Стайки» · Усадебно-парковый комплекс Богдановичей</div>
+  </div>
 </section>
 
-<!-- КАЛЕНДАРЬ -->
+<main class="invitation">
 
-<section>
+  <section class="block">
+    <h2>Дата</h2>
+    <div class="calendar-title">Июнь 2026</div>
 
-<div class="card">
+    <div class="calendar">
+      <div class="day">15</div>
+      <div class="day">16</div>
+      <div class="day active">17</div>
+      <div class="day">18</div>
+      <div class="day">19</div>
+    </div>
+  </section>
 
-<h2>Дата</h2>
+  <section class="block">
+    <h2>Тайминг</h2>
+    <p class="sub">Будем рады видеть вас в этот день рядом с нами</p>
 
-<p>Июнь 2026</p>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-time">15:30</div>
+        <div class="timeline-text">Сбор гостей</div>
+      </div>
 
-<div class="calendar">
+      <div class="timeline-item">
+        <div class="timeline-time">16:00</div>
+        <div class="timeline-text">Церемония</div>
+      </div>
+    </div>
+  </section>
 
-<div class="day">15</div>
-<div class="day">16</div>
-<div class="day active">17</div>
-<div class="day">18</div>
-<div class="day">19</div>
+  <section class="block">
+    <h2>Место проведения</h2>
 
-</div>
+    <div class="text-block">
+      <p><strong>«Двор Стайки»</strong><br>Усадебно-парковый комплекс Богдановичей</p>
+    </div>
 
-</div>
+    <a class="btn" href="https://yandex.com/maps/-/CPUZeHJ6" target="_blank">Открыть карту</a>
+  </section>
 
-</section>
+  <section class="block">
+    <h2>Цветы</h2>
 
-<!-- ТАЙМИНГ -->
+    <div class="text-block">
+      <p>Мы очень любим цветы, но, к сожалению, не успеем в полной мере насладиться их красотой.</p>
+      <p>Вместо букета мы будем рады получить виниловую пластинку с вашим любимым исполнителем — для нас это станет особенно тёплым и памятным подарком.</p>
+    </div>
+  </section>
 
-<section>
+  <section class="block">
+    <h2>Анкета гостя</h2>
+    <p class="sub">Пожалуйста, подтвердите своё присутствие, заполнив анкету ниже</p>
 
-<div class="card">
+    <div class="form-wrap">
+      <iframe
+        src="https://docs.google.com/forms/d/e/1FAIpQLSfjSRR-dOxG0Vyr6Znsb_P3IMDmIMh4VwFZfJqCC3KEq1NNEw/viewform?embedded=true">
+      </iframe>
+    </div>
+  </section>
 
-<h2>Тайминг</h2>
-
-<div class="time">15:30</div>
-<div>Сбор гостей</div>
-
-<div class="time">16:00</div>
-<div>Церемония</div>
-
-</div>
-
-</section>
-
-<!-- МЕСТО -->
-
-<section>
-
-<div class="card">
-
-<h2>Место проведения</h2>
-
-<p>
-«Двор Стайки»<br>
-Усадебно-парковый комплекс Богдановичей
-</p>
-
-<a class="btn"
-href="https://yandex.com/maps/-/CPUZeHJ6"
-target="_blank">
-Открыть карту
-</a>
-
-</div>
-
-</section>
-
-<!-- ВМЕСТО ЦВЕТОВ -->
-
-<section>
-
-<div class="card">
-
-<h2>Цветы</h2>
-
-<p>
-Мы очень любим цветы, но формат нашей свадьбы
-не позволит нам долго наслаждаться их красотой.
-</p>
-
-<p>
-Вместо букета мы будем рады получить
-виниловую пластинку с вашим любимым исполнителем.
-</p>
-
-</div>
-
-</section>
-
-<!-- АНКЕТА -->
-
-<section>
-
-<div class="card">
-
-<h2>Анкета гостя</h2>
-
-<p>Пожалуйста подтвердите ваше присутствие</p>
-
-<iframe
-src="https://docs.google.com/forms/d/e/1FAIpQLSfjSRR-dOxG0Vyr6Znsb_P3IMDmIMh4VwFZfJqCC3KEq1NNEw/viewform?embedded=true"
-width="100%"
-height="1500">
-</iframe>
-
-</div>
-
-</section>
+</main>
 
 </body>
 </html>
