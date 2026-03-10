@@ -85,6 +85,14 @@ margin-top:10px;
 font-size:18px;
 }
 
+/* таймер */
+
+.countdown{
+margin-top:20px;
+font-size:20px;
+letter-spacing:2px;
+}
+
 /* контейнер приглашения */
 
 .invitation{
@@ -220,6 +228,16 @@ height:1450px;
 border:0;
 }
 
+/* финальный блок */
+
+.final{
+text-align:center;
+padding:60px 20px;
+font-family:'Playfair Display',serif;
+font-size:32px;
+color:#7e3f55;
+}
+
 /* mobile */
 
 @media (max-width:700px){
@@ -253,6 +271,8 @@ padding:20px;
 <div class="hero-place">
 «Двор Стайки» · Усадебно-парковый комплекс Богдановичей
 </div>
+
+<div id="countdown" class="countdown"></div>
 
 </div>
 
@@ -351,11 +371,17 @@ target="_blank">
 
 <h2>Цветы</h2>
 
-<div class="text-block">
-      <p>Мы очень любим цветы, но, к сожалению, не успеем в полной мере насладиться их красотой.</p>
-      <p>Вместо букета мы будем рады получить виниловую пластинку с вашим любимым исполнителем — для нас это станет особенно тёплым и памятным подарком.</p>
-    </div>
-  </section>
+<p>
+Мы очень любим цветы, но, к сожалению,
+не успеем насладиться их красотой.
+</p>
+
+<p>
+Вместо букета будем рады получить
+виниловую пластинку с вашим любимым исполнителем.
+</p>
+
+</section>
 
 <!-- АНКЕТА -->
 
@@ -363,7 +389,7 @@ target="_blank">
 
 <h2>Анкета гостя</h2>
 
-<p>Пожалуйста, подтвердите своё присутствие, заполнив анкету ниже</p>
+<p>Пожалуйста, подтвердите своё присутствие</p>
 
 <div class="form-wrap">
 
@@ -376,6 +402,30 @@ src="https://docs.google.com/forms/d/e/1FAIpQLSfjSRR-dOxG0Vyr6Znsb_P3IMDmIMh4VwF
 </section>
 
 </main>
+
+<div class="final">
+Мы будем счастливы разделить этот день вместе с вами
+</div>
+
+<script>
+
+const target = new Date("June 17, 2026 16:00:00").getTime();
+
+setInterval(function(){
+
+const now = new Date().getTime();
+const diff = target - now;
+
+const days = Math.floor(diff/(1000*60*60*24));
+const hours = Math.floor((diff%(1000*60*60*24))/(1000*60*60));
+const minutes = Math.floor((diff%(1000*60*60))/(1000*60));
+
+document.getElementById("countdown").innerHTML =
+"До свадьбы: " + days + " дней " + hours + " часов " + minutes + " минут";
+
+},1000);
+
+</script>
 
 </body>
 </html>
