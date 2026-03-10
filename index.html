@@ -153,15 +153,17 @@ font-size:16px;
 color:#E89AB2;
 }
 
-/* тайминг */
+/* ТАЙМИНГ */
 
 .timeline{
+position:relative;
 max-width:420px;
 margin:auto;
+padding-right:80px;
 }
 
-.timeline-item{
-margin:20px 0;
+.timeline-row{
+margin:35px 0;
 }
 
 .timeline-time{
@@ -173,14 +175,25 @@ color:#C77C96;
 color:var(--muted);
 }
 
-/* стрелка */
+/* БОЛЬШАЯ ИЗОГНУТАЯ СТРЕЛКА */
 
 .timeline-arrow{
-margin:10px 0;
+position:absolute;
+right:-20px;
+top:10px;
+width:140px;
+height:170px;
 }
 
-.timeline-arrow svg{
-opacity:0.8;
+.arrow-path{
+stroke:#E89AB2;
+stroke-width:4;
+fill:none;
+stroke-linecap:round;
+}
+
+.arrow-head{
+fill:#E89AB2;
 }
 
 /* фото */
@@ -264,6 +277,14 @@ margin:-40px 15px 40px;
 padding:20px;
 }
 
+.timeline{
+padding-right:0;
+}
+
+.timeline-arrow{
+display:none;
+}
+
 }
 
 </style>
@@ -313,25 +334,27 @@ padding:20px;
 
 <div class="timeline">
 
-<div class="timeline-item">
+<div class="timeline-row">
 <div class="timeline-time">15:30</div>
 <div class="timeline-text">Сбор гостей</div>
 </div>
 
-<div class="timeline-arrow">
-<svg viewBox="0 0 120 60" width="80">
-<path d="M10 10 C60 80, 80 -20, 110 40"
-stroke="#E89AB2"
-stroke-width="3"
-fill="none"
-stroke-linecap="round"/>
-</svg>
-</div>
-
-<div class="timeline-item">
+<div class="timeline-row">
 <div class="timeline-time">16:00</div>
 <div class="timeline-text">Церемония</div>
 </div>
+
+<svg class="timeline-arrow" viewBox="0 0 220 200">
+
+<path
+d="M60 20 C200 40, 200 140, 100 160"
+class="arrow-path"/>
+
+<polygon
+points="95,155 115,160 100,140"
+class="arrow-head"/>
+
+</svg>
 
 </div>
 
@@ -384,7 +407,7 @@ target="_blank">
 
 <div class="text-block">
       <p>Мы очень любим цветы, но, к сожалению, не успеем в полной мере насладиться их красотой.</p>
-      <p>Вместо букета мы будем рады получить виниловую пластинку с вашим любимым исполнителем — для нас это станет особенно тёплым и памятным подарком.</p>
+      <p>Вместо букета мы будем рады получить виниловую пластинку с вашим любимым исполнителем — для нас это станет тёплым и памятным подарком.</p>
     </div>
   </section>
 
