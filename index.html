@@ -3,11 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>17.06.2026 — Свадьба</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400&display=swap" rel="stylesheet">
 
 <style>
+
 :root{
   --bg:#F6F4EF;
   --text:#2E2E2E;
@@ -19,6 +21,10 @@
   --peach:#E9B57E;
 }
 
+html{
+  scroll-behavior:smooth;
+}
+
 body{
   margin:0;
   background:var(--bg);
@@ -27,10 +33,34 @@ body{
   line-height:1.7;
 }
 
+/* decorative flowers */
+
+.flower{
+  position:fixed;
+  width:180px;
+  opacity:0.15;
+  pointer-events:none;
+  z-index:0;
+}
+
+.flower1{
+  top:0;
+  left:0;
+}
+
+.flower2{
+  bottom:0;
+  right:0;
+}
+
+/* layout */
+
 section{
   max-width:900px;
   margin:auto;
   padding:80px 20px;
+  position:relative;
+  z-index:2;
 }
 
 h1,h2{
@@ -39,6 +69,17 @@ h1,h2{
   margin-bottom:20px;
 }
 
+h2::after{
+  content:"";
+  display:block;
+  width:60px;
+  height:2px;
+  background:var(--pink);
+  margin:15px auto 0;
+}
+
+/* hero */
+
 .hero{
   height:90vh;
   display:flex;
@@ -46,25 +87,48 @@ h1,h2{
   justify-content:center;
   align-items:center;
   text-align:center;
+
+  background:
+  linear-gradient(rgba(246,244,239,0.6), rgba(246,244,239,0.8)),
+  url("hero.jpg") center/cover no-repeat;
 }
 
 .hero h1{
-  font-size:52px;
+  font-size:64px;
   font-weight:600;
+  letter-spacing:1px;
 }
 
 .date{
-  font-size:22px;
+  font-size:26px;
   margin-top:15px;
-  letter-spacing:2px;
+  letter-spacing:4px;
 }
+
+/* cards */
 
 .card{
   background:white;
   padding:40px;
   border-radius:16px;
   margin-bottom:40px;
+
+  opacity:0;
+  transform:translateY(30px);
+  animation:fadeUp .9s ease forwards;
 }
+
+.card:nth-child(2){animation-delay:.2s}
+.card:nth-child(3){animation-delay:.4s}
+
+@keyframes fadeUp{
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+/* colors */
 
 .colors{
   display:flex;
@@ -80,35 +144,32 @@ h1,h2{
   border-radius:50%;
 }
 
-.timeline p{
-  text-align:center;
-}
+/* button */
 
-form label{
-  display:block;
-  margin-top:20px;
-  font-weight:500;
-}
-
-input, select, textarea{
-  width:100%;
-  padding:12px;
-  margin-top:5px;
-  border:1px solid #ddd;
-  border-radius:8px;
-  font-family:inherit;
-}
-
-button{
-  margin-top:30px;
-  padding:14px;
+.map-btn{
+  display:inline-block;
+  padding:12px 20px;
   background:var(--pink);
   color:white;
-  border:none;
+  text-decoration:none;
   border-radius:10px;
-  cursor:pointer;
-  width:100%;
+  transition:.25s;
 }
+
+.map-btn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 8px 20px rgba(0,0,0,0.08);
+}
+
+/* photo */
+
+.photo{
+  width:100%;
+  border-radius:16px;
+  margin-bottom:40px;
+}
+
+/* footer */
 
 footer{
   text-align:center;
@@ -117,77 +178,102 @@ footer{
 }
 
 @media(max-width:600px){
-  .hero h1{font-size:34px}
-  section{padding:60px 20px}
+
+.hero h1{
+  font-size:36px;
 }
+
+section{
+  padding:60px 20px;
+}
+
+}
+
 </style>
 </head>
 
 <body>
 
+<img src="flower1.png" class="flower flower1">
+<img src="flower2.png" class="flower flower2">
+
 <section class="hero">
   <h1>Мы ждём вас</h1>
   <div class="date">17.06.2026</div>
-  <div>Стайки · Усадьба «Багдановичи»</div>
+  <div>Стайки · Усадьба «Богдановичи»</div>
 </section>
 
 <section>
+
 <div class="card">
-  <h2>Когда и где</h2>
-  <p style="text-align:center">
-    Сбор гостей — 15:30<br>
-    Церемония — 16:00<br>
-    Ужин и праздник — 17:00
-  </p>
 
-  <p style="text-align:center; margin-top:20px;">
-    <a href="https://yandex.com/maps/-/CPUZeHJ6" 
-       target="_blank" 
-       style="display:inline-block;
-              padding:12px 20px;
-              background:#D487A5;
-              color:white;
-              text-decoration:none;
-              border-radius:10px;">
-      Открыть карту
-    </a>
-  </p>
+<h2>Когда и где</h2>
+
+<p style="text-align:center">
+Сбор гостей — 15:30<br>
+Церемония — 16:00<br>
+Ужин и праздник — 17:00
+</p>
+
+<p style="text-align:center;margin-top:20px;">
+
+<a class="map-btn"
+href="https://yandex.com/maps/-/CPUZeHJ6"
+target="_blank">
+Открыть карту
+</a>
+
+</p>
+
 </div>
 
-  <div class="card">
-    <h2>Дресс-код</h2>
-    <p style="text-align:center">
-      Летние пастельные оттенки, лёгкие ткани, элегантность.
-    </p>
+<div class="card">
 
-    <div class="colors">
-      <div class="color" style="background:var(--yellow)"></div>
-      <div class="color" style="background:var(--pink)"></div>
-      <div class="color" style="background:var(--blue)"></div>
-      <div class="color" style="background:var(--green)"></div>
-      <div class="color" style="background:var(--lav)"></div>
-      <div class="color" style="background:var(--peach)"></div>
-    </div>
-  </div>
+<h2>Дресс-код</h2>
+
+<p style="text-align:center">
+Летние пастельные оттенки, лёгкие ткани, элегантность.
+</p>
+
+<div class="colors">
+
+<div class="color" style="background:var(--yellow)"></div>
+<div class="color" style="background:var(--pink)"></div>
+<div class="color" style="background:var(--blue)"></div>
+<div class="color" style="background:var(--green)"></div>
+<div class="color" style="background:var(--lav)"></div>
+<div class="color" style="background:var(--peach)"></div>
+
+</div>
+
+</div>
+
+<img src="couple.jpg" class="photo">
+
 </section>
 
 <section>
-    <div class="card">
-  <h2>Подтвердите присутствие</h2>
 
-  <iframe 
-    src="https://docs.google.com/forms/d/e/1FAIpQLSfjSRR-dOxG0Vyr6Znsb_P3IMDmIMh4VwFZfJqCC3KEq1NNEw/viewform?embedded=true"
-    width="100%" 
-    height="1500" 
-    frameborder="0"
-    style="border-radius:12px;">
-  </iframe>
+<div class="card">
+
+<h2>Подтвердите присутствие</h2>
+
+<iframe
+src="https://docs.google.com/forms/d/e/1FAIpQLSfjSRR-dOxG0Vyr6Znsb_P3IMDmIMh4VwFZfJqCC3KEq1NNEw/viewform?embedded=true"
+width="100%"
+height="1500"
+frameborder="0"
+style="border-radius:12px;">
+</iframe>
 
 </div>
+
 </section>
 
 <footer>
-  Будем рады разделить этот день вместе с вами
+
+Будем рады разделить этот день вместе с вами
+
 </footer>
 
 </body>
