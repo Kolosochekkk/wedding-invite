@@ -120,6 +120,14 @@ h2{
   align-items:center;
 }
 
+.weekday{
+  min-width:28px;
+  text-align:center;
+  font-size:13px;
+  color:#A69B9B;
+  font-weight:500;
+}
+
 .day{
   min-width:28px;
   text-align:center;
@@ -303,13 +311,21 @@ iframe{
 
     <p>Июнь 2026</p>
 
-    <div class="calendar">
-      <div class="day">15</div>
-      <div class="day">16</div>
-      <div class="day active"><span>17</span></div>
-      <div class="day">18</div>
-      <div class="day">19</div>
-    </div>
+<div class="calendar">
+
+  <div class="weekday">ПН</div>
+  <div class="weekday">ВТ</div>
+  <div class="weekday">СР</div>
+  <div class="weekday">ЧТ</div>
+  <div class="weekday">ПТ</div>
+
+  <div class="day">15</div>
+  <div class="day">16</div>
+  <div class="day active"><span>17</span></div>
+  <div class="day">18</div>
+  <div class="day">19</div>
+
+</div>
 
     <div id="countdown" class="countdown"></div>
 
