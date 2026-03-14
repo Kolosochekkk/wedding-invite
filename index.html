@@ -150,11 +150,13 @@ color:white;
 
 .day.active svg{
 position:absolute;
-top:-3px;
-width:44px;
-height:44px;
+top:50%;
+left:50%;
+width:52px;
+height:52px;
 z-index:1;
 animation:heartBeat 1.6s infinite;
+transform:translate(-50%,-50%);
 transform-origin:center;
 }
 
@@ -162,6 +164,7 @@ transform-origin:center;
 position:relative;
 z-index:2;
 font-weight:600;
+font-size:16px;
 }
 
 /* таймер */
@@ -250,71 +253,6 @@ height:1450px;
 border:0;
 }
 
-/* лепестки сакуры */
-
-.petal{
-position:fixed;
-top:-12vh;
-pointer-events:none;
-z-index:9999;
-will-change:transform, opacity;
-filter:blur(0.2px);
-}
-
-.petal::before{
-content:"";
-display:block;
-width:100%;
-height:100%;
-background:linear-gradient(135deg,#FBE1EA 0%,#F7BDD0 55%,#E8A0B7 100%);
-border-radius:72% 0 72% 72%;
-box-shadow:
-inset -1px -1px 2px rgba(255,255,255,0.45),
-0 2px 6px rgba(229,149,173,0.12);
-transform:rotate(-25deg);
-}
-
-@keyframes petalFall{
-0%{
-transform:translate3d(0,-12vh,0) rotate(0deg);
-opacity:0;
-}
-10%{
-opacity:0.9;
-}
-25%{
-transform:translate3d(14px,22vh,0) rotate(70deg);
-}
-50%{
-transform:translate3d(-12px,52vh,0) rotate(150deg);
-}
-75%{
-transform:translate3d(18px,80vh,0) rotate(240deg);
-}
-100%{
-transform:translate3d(-8px,112vh,0) rotate(320deg);
-opacity:0.75;
-}
-}
-
-@keyframes petalSway{
-0%{
-margin-left:0;
-}
-25%{
-margin-left:10px;
-}
-50%{
-margin-left:24px;
-}
-75%{
-margin-left:8px;
-}
-100%{
-margin-left:0;
-}
-}
-
 /* финал */
 
 .final{
@@ -348,7 +286,6 @@ grid-template-columns:repeat(5,50px);
 <body>
 
 <section class="hero">
-
 <div>
 
 <h1>Юля & Андрей</h1>
@@ -360,7 +297,6 @@ grid-template-columns:repeat(5,50px);
 </div>
 
 </div>
-
 </section>
 
 <main class="invitation">
@@ -510,33 +446,6 @@ document.getElementById("countdown").innerHTML =
 "До свадьбы: " + days + " дней " + hours + " часов " + minutes + " минут";
 
 },1000);
-
-function createPetal(){
-
-const petal = document.createElement("div");
-petal.className = "petal";
-
-const size = Math.random() * 8 + 10;
-petal.style.width = size + "px";
-petal.style.height = size * 1.35 + "px";
-
-petal.style.left = Math.random() * 100 + "vw";
-petal.style.opacity = (Math.random() * 0.2 + 0.65).toFixed(2);
-
-const fallDuration = Math.random() * 4 + 10;
-const swayDuration = Math.random() * 2 + 4;
-
-petal.style.animation = `petalFall ${fallDuration}s linear forwards, petalSway ${swayDuration}s ease-in-out infinite`;
-
-document.body.appendChild(petal);
-
-setTimeout(function(){
-petal.remove();
-}, fallDuration * 1000);
-
-}
-
-setInterval(createPetal, 650);
 
 </script>
 
