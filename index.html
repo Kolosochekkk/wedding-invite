@@ -253,11 +253,11 @@ border:0;
 
 .petal{
 position:fixed;
-top:-10vh;
+top:-12vh;
 pointer-events:none;
 z-index:9999;
-opacity:0.85;
-will-change:transform;
+will-change:transform, opacity;
+filter:blur(0.2px);
 }
 
 .petal::before{
@@ -265,27 +265,34 @@ content:"";
 display:block;
 width:100%;
 height:100%;
-background:linear-gradient(135deg,#F8C7D8 0%,#F5A8C3 55%,#E595AD 100%);
-border-radius:70% 0 70% 70%;
-box-shadow:inset -1px -1px 2px rgba(255,255,255,0.35);
+background:linear-gradient(135deg,#FBE1EA 0%,#F7BDD0 55%,#E8A0B7 100%);
+border-radius:72% 0 72% 72%;
+box-shadow:
+inset -1px -1px 2px rgba(255,255,255,0.45),
+0 2px 6px rgba(229,149,173,0.12);
 transform:rotate(-25deg);
 }
 
 @keyframes petalFall{
 0%{
-transform:translate3d(0,-10vh,0) rotate(0deg);
+transform:translate3d(0,-12vh,0) rotate(0deg);
+opacity:0;
+}
+10%{
+opacity:0.9;
 }
 25%{
-transform:translate3d(20px,25vh,0) rotate(90deg);
+transform:translate3d(14px,22vh,0) rotate(70deg);
 }
 50%{
-transform:translate3d(-15px,55vh,0) rotate(180deg);
+transform:translate3d(-12px,52vh,0) rotate(150deg);
 }
 75%{
-transform:translate3d(25px,80vh,0) rotate(270deg);
+transform:translate3d(18px,80vh,0) rotate(240deg);
 }
 100%{
-transform:translate3d(-10px,110vh,0) rotate(360deg);
+transform:translate3d(-8px,112vh,0) rotate(320deg);
+opacity:0.75;
 }
 }
 
@@ -293,8 +300,14 @@ transform:translate3d(-10px,110vh,0) rotate(360deg);
 0%{
 margin-left:0;
 }
+25%{
+margin-left:10px;
+}
 50%{
-margin-left:30px;
+margin-left:24px;
+}
+75%{
+margin-left:8px;
 }
 100%{
 margin-left:0;
@@ -502,14 +515,15 @@ function createPetal(){
 const petal = document.createElement("div");
 petal.className = "petal";
 
-const size = Math.random() * 10 + 12;
+const size = Math.random() * 8 + 10;
 petal.style.width = size + "px";
-petal.style.height = size * 1.3 + "px";
+petal.style.height = size * 1.35 + "px";
 
 petal.style.left = Math.random() * 100 + "vw";
+petal.style.opacity = (Math.random() * 0.2 + 0.65).toFixed(2);
 
-const fallDuration = Math.random() * 5 + 8;
-const swayDuration = Math.random() * 3 + 3;
+const fallDuration = Math.random() * 4 + 10;
+const swayDuration = Math.random() * 2 + 4;
 
 petal.style.animation = `petalFall ${fallDuration}s linear forwards, petalSway ${swayDuration}s ease-in-out infinite`;
 
@@ -521,7 +535,7 @@ petal.remove();
 
 }
 
-setInterval(createPetal, 350);
+setInterval(createPetal, 650);
 
 </script>
 
