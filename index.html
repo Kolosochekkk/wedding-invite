@@ -140,8 +140,6 @@ position:relative;
 color:white;
 }
 
-/* НОВАЯ АНИМАЦИЯ */
-
 @keyframes heartBeat{
 0%{transform:scale(1);}
 25%{transform:scale(1.12);}
@@ -249,6 +247,58 @@ iframe{
 width:100%;
 height:1450px;
 border:0;
+}
+
+/* лепестки сакуры */
+
+.petal{
+position:fixed;
+top:-10vh;
+pointer-events:none;
+z-index:9999;
+opacity:0.85;
+will-change:transform;
+}
+
+.petal::before{
+content:"";
+display:block;
+width:100%;
+height:100%;
+background:linear-gradient(135deg,#F8C7D8 0%,#F5A8C3 55%,#E595AD 100%);
+border-radius:70% 0 70% 70%;
+box-shadow:inset -1px -1px 2px rgba(255,255,255,0.35);
+transform:rotate(-25deg);
+}
+
+@keyframes petalFall{
+0%{
+transform:translate3d(0,-10vh,0) rotate(0deg);
+}
+25%{
+transform:translate3d(20px,25vh,0) rotate(90deg);
+}
+50%{
+transform:translate3d(-15px,55vh,0) rotate(180deg);
+}
+75%{
+transform:translate3d(25px,80vh,0) rotate(270deg);
+}
+100%{
+transform:translate3d(-10px,110vh,0) rotate(360deg);
+}
+}
+
+@keyframes petalSway{
+0%{
+margin-left:0;
+}
+50%{
+margin-left:30px;
+}
+100%{
+margin-left:0;
+}
 }
 
 /* финал */
@@ -446,6 +496,32 @@ document.getElementById("countdown").innerHTML =
 "До свадьбы: " + days + " дней " + hours + " часов " + minutes + " минут";
 
 },1000);
+
+function createPetal(){
+
+const petal = document.createElement("div");
+petal.className = "petal";
+
+const size = Math.random() * 10 + 12;
+petal.style.width = size + "px";
+petal.style.height = size * 1.3 + "px";
+
+petal.style.left = Math.random() * 100 + "vw";
+
+const fallDuration = Math.random() * 5 + 8;
+const swayDuration = Math.random() * 3 + 3;
+
+petal.style.animation = `petalFall ${fallDuration}s linear forwards, petalSway ${swayDuration}s ease-in-out infinite`;
+
+document.body.appendChild(petal);
+
+setTimeout(function(){
+petal.remove();
+}, fallDuration * 1000);
+
+}
+
+setInterval(createPetal, 350);
 
 </script>
 
