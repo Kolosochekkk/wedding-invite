@@ -53,11 +53,9 @@ display:flex;
 align-items:center;
 justify-content:center;
 text-align:center;
-
 background:
 linear-gradient(rgba(0,0,0,.30), rgba(0,0,0,.45)),
 url("hero.png") center/cover no-repeat;
-
 color:white;
 margin-left:calc(-50vw + 50%);
 }
@@ -218,6 +216,25 @@ border-radius:50%;
 box-shadow:0 3px 10px rgba(0,0,0,0.08);
 }
 
+.dresscode-note{
+margin-top:18px;
+color:var(--muted);
+}
+
+.dresscode-image-wrap{
+margin-top:25px;
+display:flex;
+justify-content:center;
+}
+
+.dresscode-image{
+width:100%;
+max-width:720px;
+border-radius:20px;
+box-shadow:0 12px 30px rgba(0,0,0,0.08);
+background:var(--paper);
+}
+
 /* кнопка */
 
 .btn{
@@ -273,6 +290,10 @@ padding:20px;
 
 .calendar{
 grid-template-columns:repeat(5,50px);
+}
+
+.dresscode-image{
+border-radius:16px;
 }
 
 }
@@ -355,7 +376,7 @@ d="M12 21s-6.7-4.35-9.33-7.02C.5 11.78.5 8.5 2.74 6.24A4.3 4.3 0 0 1 9 6.2l3 3 3
 
 <h2>Место проведения</h2>
 
-<img src="stayki.jpeg" class="place-photo">
+<img src="stayki.jpeg" class="place-photo" alt="Место проведения свадьбы">
 
 <p>
 <strong>«Двор Стайки»</strong><br>
@@ -386,6 +407,14 @@ target="_blank">
 <div class="color" style="background:#BFE39C"></div>
 <div class="color" style="background:#D9B8F1"></div>
 <div class="color" style="background:#F3C89E"></div>
+</div>
+
+<p class="dresscode-note">
+Ниже мы собрали примеры образов, которые отлично подойдут для нашего праздника
+</p>
+
+<div class="dresscode-image-wrap">
+<img src="dresscode.jpg" alt="Примеры образов для дресс-кода" class="dresscode-image">
 </div>
 
 </section>
@@ -424,7 +453,7 @@ src="https://docs.google.com/forms/d/e/1FAIpQLSfjSRR-dOxG0Vyr6Znsb_P3IMDmIMh4VwF
 
 <script>
 
-const target = new Date("June 17, 2026 16:00:00").getTime();
+const target = new Date("June 17, 2026 15:30:00").getTime();
 
 setInterval(function(){
 
