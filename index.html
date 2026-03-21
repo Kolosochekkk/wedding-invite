@@ -23,6 +23,10 @@
 box-sizing:border-box;
 }
 
+html{
+scroll-behavior:smooth;
+}
+
 body{
 margin:0;
 font-family:'Inter',sans-serif;
@@ -57,6 +61,21 @@ url("hero.png") center/cover no-repeat;
 color:white;
 margin-left:calc(-50vw + 50%);
 padding:20px;
+}
+
+.hero-content{
+animation:heroFade 1.4s ease both;
+}
+
+@keyframes heroFade{
+0%{
+opacity:0;
+transform:translateY(18px);
+}
+100%{
+opacity:1;
+transform:translateY(0);
+}
 }
 
 .hero h1{
@@ -114,6 +133,19 @@ font-family:'Playfair Display',serif;
 margin:0 0 20px;
 font-size:38px;
 color:#C77C96;
+}
+
+/* анимация блоков */
+
+.fade-in{
+opacity:0;
+transform:translateY(24px);
+transition:opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in.visible{
+opacity:1;
+transform:translateY(0);
 }
 
 /* календарь */
@@ -207,6 +239,12 @@ width:100%;
 border-radius:18px;
 margin:20px 0 15px;
 box-shadow:0 10px 30px rgba(0,0,0,0.08);
+transition:transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.place-photo:hover{
+transform:translateY(-4px);
+box-shadow:0 16px 36px rgba(0,0,0,0.10);
 }
 
 .place-address{
@@ -256,6 +294,12 @@ max-width:720px;
 border-radius:20px;
 box-shadow:0 12px 30px rgba(0,0,0,0.08);
 background:var(--paper);
+transition:transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.dresscode-image:hover{
+transform:translateY(-5px);
+box-shadow:0 18px 40px rgba(0,0,0,0.10);
 }
 
 /* контакты */
@@ -266,6 +310,12 @@ padding:20px;
 border-radius:18px;
 background:var(--paper);
 box-shadow:0 10px 25px rgba(0,0,0,0.06);
+transition:transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.contact-card:hover{
+transform:translateY(-5px);
+box-shadow:0 18px 40px rgba(0,0,0,0.10);
 }
 
 .contact-name{
@@ -298,11 +348,13 @@ border-radius:999px;
 background:var(--accent);
 color:white;
 text-decoration:none;
-transition:0.2s;
+transition:transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
 }
 
 .contact-link:hover{
 background:#D9849F;
+transform:translateY(-2px);
+box-shadow:0 10px 22px rgba(229,149,173,0.28);
 }
 
 .tg-icon{
@@ -320,11 +372,13 @@ border-radius:999px;
 background:var(--accent);
 color:white;
 text-decoration:none;
-transition:0.2s;
+transition:transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
 }
 
 .btn:hover{
 background:#D9849F;
+transform:translateY(-2px);
+box-shadow:0 10px 22px rgba(229,149,173,0.28);
 }
 
 /* форма */
@@ -351,6 +405,8 @@ font-family:'Playfair Display',serif;
 font-size:32px;
 color:#C77C96;
 }
+
+/* мобильная адаптация */
 
 @media (max-width:700px){
 
@@ -402,7 +458,7 @@ padding:50px 20px;
 <body>
 
 <section class="hero">
-<div>
+<div class="hero-content">
 <h1>Юля & Андрей</h1>
 <div class="hero-date">17 июня 2026</div>
 <div class="hero-place">
@@ -415,7 +471,6 @@ padding:50px 20px;
 <main class="invitation">
 
 <section class="block">
-
 <h2>Дата</h2>
 
 <p>Июнь 2026</p>
@@ -442,15 +497,12 @@ padding:50px 20px;
 </div>
 
 <div id="countdown" class="countdown"></div>
-
 </section>
 
 <section class="block">
-
 <h2>Тайминг</h2>
 
 <div class="timeline">
-
 <div class="timeline-item">
 <div class="timeline-time">15:30</div>
 <div class="timeline-text">Сбор гостей</div>
@@ -460,13 +512,10 @@ padding:50px 20px;
 <div class="timeline-time">16:00</div>
 <div class="timeline-text">Церемония</div>
 </div>
-
 </div>
-
 </section>
 
 <section class="block">
-
 <h2>Место проведения</h2>
 
 <img src="stayki.jpeg" class="place-photo" alt="Место проведения свадьбы">
@@ -486,11 +535,9 @@ padding:50px 20px;
 <a class="btn" href="https://yandex.com/maps/-/CPUZeHJ6" target="_blank">
 Открыть на карте
 </a>
-
 </section>
 
 <section class="block">
-
 <h2>Дресс-код</h2>
 
 <p>
@@ -514,11 +561,9 @@ padding:50px 20px;
 <div class="dresscode-image-wrap">
 <img src="dresscode.jpg" alt="Примеры образов для дресс-кода" class="dresscode-image">
 </div>
-
 </section>
 
 <section class="block">
-
 <h2>Контакты</h2>
 
 <p>
@@ -542,21 +587,17 @@ padding:50px 20px;
 </a>
 </div>
 </div>
-
 </section>
 
 <section class="block">
-
 <h2>Цветы</h2>
 
 <p>Мы очень любим цветы, но, к сожалению, не успеем насладиться их красотой.</p>
 
 <p>Вместо букета будем рады получить виниловую пластинку с вашим любимым исполнителем или бутылку вашего любимого алкоголя.</p>
-
 </section>
 
 <section class="block">
-
 <h2>Анкета гостя</h2>
 
 <p>Пожалуйста, подтвердите своё присутствие, заполнив анкету ниже</p>
@@ -566,7 +607,6 @@ padding:50px 20px;
 src="https://docs.google.com/forms/d/e/1FAIpQLSfjSRR-dOxG0Vyr6Znsb_P3IMDmIMh4VwFZfJqCC3KEq1NNEw/viewform?embedded=true">
 </iframe>
 </div>
-
 </section>
 
 </main>
@@ -576,11 +616,9 @@ src="https://docs.google.com/forms/d/e/1FAIpQLSfjSRR-dOxG0Vyr6Znsb_P3IMDmIMh4VwF
 </div>
 
 <script>
-
-const target = new Date("June 17, 2026 16:00:00").getTime();
+const target = new Date("June 17, 2026 15:30:00").getTime();
 
 setInterval(function(){
-
 const now = new Date().getTime();
 const diff = target - now;
 
@@ -590,9 +628,24 @@ const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
 
 document.getElementById("countdown").innerHTML =
 "До свадьбы: " + days + " дней " + hours + " часов " + minutes + " минут";
-
 }, 1000);
 
+const elements = document.querySelectorAll('.block');
+
+const observer = new IntersectionObserver((entries) => {
+entries.forEach((entry) => {
+if(entry.isIntersecting){
+entry.target.classList.add('visible');
+}
+});
+}, {
+threshold:0.15
+});
+
+elements.forEach((el) => {
+el.classList.add('fade-in');
+observer.observe(el);
+});
 </script>
 
 </body>
