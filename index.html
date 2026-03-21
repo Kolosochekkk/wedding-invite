@@ -19,9 +19,7 @@
 --line:#EADFD9;
 }
 
-*{
-box-sizing:border-box;
-}
+*{box-sizing:border-box;}
 
 body{
 margin:0;
@@ -30,8 +28,6 @@ background:var(--bg);
 color:var(--text);
 line-height:1.65;
 }
-
-/* фон */
 
 body::before{
 content:"";
@@ -48,7 +44,7 @@ z-index:-1;
 
 .hero{
 width:100vw;
-height:100vh;
+min-height:100svh;
 display:flex;
 align-items:center;
 justify-content:center;
@@ -134,9 +130,7 @@ color:#6B6363;
 position:relative;
 }
 
-.day.active{
-color:white;
-}
+.day.active{color:white;}
 
 @keyframes heartBeat{
 0%{transform:scale(1);}
@@ -153,7 +147,6 @@ width:44px;
 height:44px;
 z-index:1;
 animation:heartBeat 1.6s infinite;
-transform-origin:center;
 }
 
 .day.active span{
@@ -170,26 +163,6 @@ font-size:18px;
 color:#C77C96;
 }
 
-/* тайминг */
-
-.timeline{
-max-width:420px;
-margin:auto;
-}
-
-.timeline-item{
-margin:25px 0;
-}
-
-.timeline-time{
-font-size:28px;
-color:#C77C96;
-}
-
-.timeline-text{
-color:var(--muted);
-}
-
 /* фото */
 
 .place-photo{
@@ -197,6 +170,18 @@ width:100%;
 border-radius:18px;
 margin:20px 0 15px;
 box-shadow:0 10px 30px rgba(0,0,0,0.08);
+}
+
+.place-address{
+display:inline-block;
+margin-top:10px;
+color:var(--muted);
+text-decoration:none;
+font-size:15px;
+}
+
+.place-address:hover{
+text-decoration:underline;
 }
 
 /* дресс код */
@@ -232,7 +217,58 @@ width:100%;
 max-width:720px;
 border-radius:20px;
 box-shadow:0 12px 30px rgba(0,0,0,0.08);
+}
+
+/* контакты */
+
+.contact-card{
+margin-top:20px;
+padding:20px;
+border-radius:18px;
 background:var(--paper);
+box-shadow:0 10px 25px rgba(0,0,0,0.06);
+}
+
+.contact-name{
+font-family:'Playfair Display',serif;
+font-size:22px;
+margin-bottom:12px;
+color:#C77C96;
+}
+
+.contact-actions{
+display:flex;
+flex-direction:column;
+gap:10px;
+align-items:center;
+}
+
+.contact-phone{
+text-decoration:none;
+color:var(--text);
+font-weight:500;
+font-size:16px;
+}
+
+.contact-link{
+display:inline-flex;
+align-items:center;
+gap:10px;
+padding:10px 20px;
+border-radius:999px;
+background:var(--accent);
+color:white;
+text-decoration:none;
+transition:0.2s;
+}
+
+.contact-link:hover{
+background:#D9849F;
+}
+
+.tg-icon{
+width:18px;
+height:18px;
 }
 
 /* кнопка */
@@ -278,24 +314,9 @@ color:#C77C96;
 }
 
 @media (max-width:700px){
-
-.hero h1{
-font-size:42px;
-}
-
-.invitation{
-margin:-40px 15px 40px;
-padding:20px;
-}
-
-.calendar{
-grid-template-columns:repeat(5,50px);
-}
-
-.dresscode-image{
-border-radius:16px;
-}
-
+.hero h1{font-size:42px;}
+.invitation{margin:-40px 15px 40px;padding:20px;}
+.calendar{grid-template-columns:repeat(5,50px);}
 }
 
 </style>
@@ -308,7 +329,8 @@ border-radius:16px;
 <h1>Юля & Андрей</h1>
 <div class="hero-date">17 июня 2026</div>
 <div class="hero-place">
-«Двор Стайки» · Усадебно-парковый комплекс Богдановичей
+«Двор Стайки»<br>
+Усадебно-парковый комплекс Богдановичей
 </div>
 </div>
 </section>
@@ -316,13 +338,10 @@ border-radius:16px;
 <main class="invitation">
 
 <section class="block">
-
 <h2>Дата</h2>
-
 <p>Июнь 2026</p>
 
 <div class="calendar">
-
 <div class="weekday">ПН</div>
 <div class="weekday">ВТ</div>
 <div class="weekday">СР</div>
@@ -333,66 +352,44 @@ border-radius:16px;
 <div class="day">16</div>
 
 <div class="day active">
-
 <svg viewBox="0 0 24 24">
 <path fill="#E595AD"
 d="M12 21s-6.7-4.35-9.33-7.02C.5 11.78.5 8.5 2.74 6.24A4.3 4.3 0 0 1 9 6.2l3 3 3-3a4.3 4.3 0 0 1 6.26.04c2.24 2.26 2.24 5.54.07 7.74C18.7 16.65 12 21 12 21z"/>
 </svg>
-
 <span>17</span>
-
 </div>
 
 <div class="day">18</div>
 <div class="day">19</div>
-
 </div>
 
 <div id="countdown" class="countdown"></div>
-
 </section>
 
 <section class="block">
-
-<h2>Тайминг</h2>
-
-<div class="timeline">
-
-<div class="timeline-item">
-<div class="timeline-time">15:30</div>
-<div class="timeline-text">Сбор гостей</div>
-</div>
-
-<div class="timeline-item">
-<div class="timeline-time">16:00</div>
-<div class="timeline-text">Церемония</div>
-</div>
-
-</div>
-
-</section>
-
-<section class="block">
-
 <h2>Место проведения</h2>
 
-<img src="stayki.jpeg" class="place-photo" alt="Место проведения свадьбы">
+<img src="stayki.jpeg" class="place-photo">
 
 <p>
 <strong>«Двор Стайки»</strong><br>
 Усадебно-парковый комплекс Богдановичей
 </p>
 
-<a class="btn"
-href="https://yandex.com/maps/-/CPUZeHJ6"
-target="_blank">
+<a href="https://yandex.com/maps/-/CPUZeHJ6" target="_blank" class="place-address">
+Минская область, Вилейский район,<br>
+д. Стайки, 20
+</a>
+
+<br>
+
+<a class="btn" href="https://yandex.com/maps/-/CPUZeHJ6" target="_blank">
 Открыть на карте
 </a>
 
 </section>
 
 <section class="block">
-
 <h2>Дресс-код</h2>
 
 <p>
@@ -414,35 +411,38 @@ target="_blank">
 </p>
 
 <div class="dresscode-image-wrap">
-<img src="dresscode.jpg" alt="Примеры образов для дресс-кода" class="dresscode-image">
+<img src="dresscode.jpg" class="dresscode-image">
 </div>
 
 </section>
 
 <section class="block">
+<h2>Контакты</h2>
 
-<h2>Цветы</h2>
+<p>
+Если вы хотите подготовить для нас сюрприз или у вас возникнут вопросы,
+пожалуйста, свяжитесь с нашим организатором Ангелиной.
+</p>
 
-<p>Мы очень любим цветы, но, к сожалению, не успеем насладиться их красотой.</p>
+<div class="contact-card">
 
-<p>Вместо букета будем рады получить виниловую пластинку с вашим любимым исполнителем или бутылку вашего любимого алкоголя.</p>
+<div class="contact-name">Ангелина</div>
 
-</section>
+<div class="contact-actions">
 
-<section class="block">
+<a href="tel:+375255152782" class="contact-phone">
++375 25 515 27 82
+</a>
 
-<h2>Анкета гостя</h2>
-
-<p>Пожалуйста подтвердите своё присутствие, заполнив анкету ниже</p>
-
-<div class="form-wrap">
-
-<iframe
-src="https://docs.google.com/forms/d/e/1FAIpQLSfjSRR-dOxG0Vyr6Znsb_P3IMDmIMh4VwFZfJqCC3KEq1NNEw/viewform?embedded=true">
-</iframe>
+<a href="https://t.me/linakhmara" target="_blank" class="contact-link">
+<svg class="tg-icon" viewBox="0 0 24 24">
+<path fill="white" d="M9.04 15.47l-.38 3.79c.54 0 .77-.23 1.04-.51l2.5-2.39 5.18 3.79c.95.52 1.63.25 1.88-.88l3.4-15.94h.01c.3-1.39-.5-1.93-1.42-1.6L1.2 9.27c-1.35.52-1.33 1.27-.23 1.61l5.8 1.8 13.45-8.47c.63-.42 1.2-.19.73.23"/>
+</svg>
+<span>Написать в Telegram</span>
+</a>
 
 </div>
-
+</div>
 </section>
 
 </main>
@@ -452,11 +452,9 @@ src="https://docs.google.com/forms/d/e/1FAIpQLSfjSRR-dOxG0Vyr6Znsb_P3IMDmIMh4VwF
 </div>
 
 <script>
-
 const target = new Date("June 17, 2026 15:30:00").getTime();
 
 setInterval(function(){
-
 const now = new Date().getTime();
 const diff = target - now;
 
@@ -468,7 +466,6 @@ document.getElementById("countdown").innerHTML =
 "До свадьбы: " + days + " дней " + hours + " часов " + minutes + " минут";
 
 },1000);
-
 </script>
 
 </body>
