@@ -19,7 +19,9 @@
 --line:#EADFD9;
 }
 
-*{box-sizing:border-box;}
+*{
+box-sizing:border-box;
+}
 
 body{
 margin:0;
@@ -54,6 +56,7 @@ linear-gradient(rgba(0,0,0,.30), rgba(0,0,0,.45)),
 url("hero.png") center/cover no-repeat;
 color:white;
 margin-left:calc(-50vw + 50%);
+padding:20px;
 }
 
 .hero h1{
@@ -71,6 +74,17 @@ font-size:22px;
 .hero-place{
 margin-top:10px;
 font-size:18px;
+line-height:1.5;
+}
+
+.place-main{
+font-size:20px;
+}
+
+.place-sub{
+font-size:16px;
+opacity:0.9;
+margin-top:4px;
 }
 
 /* контейнер */
@@ -130,7 +144,9 @@ color:#6B6363;
 position:relative;
 }
 
-.day.active{color:white;}
+.day.active{
+color:white;
+}
 
 @keyframes heartBeat{
 0%{transform:scale(1);}
@@ -147,6 +163,7 @@ width:44px;
 height:44px;
 z-index:1;
 animation:heartBeat 1.6s infinite;
+transform-origin:center;
 }
 
 .day.active span{
@@ -161,6 +178,26 @@ font-weight:600;
 margin-top:24px;
 font-size:18px;
 color:#C77C96;
+}
+
+/* тайминг */
+
+.timeline{
+max-width:420px;
+margin:auto;
+}
+
+.timeline-item{
+margin:25px 0;
+}
+
+.timeline-time{
+font-size:28px;
+color:#C77C96;
+}
+
+.timeline-text{
+color:var(--muted);
 }
 
 /* фото */
@@ -178,6 +215,7 @@ margin-top:10px;
 color:var(--muted);
 text-decoration:none;
 font-size:15px;
+line-height:1.6;
 }
 
 .place-address:hover{
@@ -217,6 +255,7 @@ width:100%;
 max-width:720px;
 border-radius:20px;
 box-shadow:0 12px 30px rgba(0,0,0,0.08);
+background:var(--paper);
 }
 
 /* контакты */
@@ -314,9 +353,47 @@ color:#C77C96;
 }
 
 @media (max-width:700px){
-.hero h1{font-size:42px;}
-.invitation{margin:-40px 15px 40px;padding:20px;}
-.calendar{grid-template-columns:repeat(5,50px);}
+
+.hero h1{
+font-size:42px;
+}
+
+.hero-date{
+font-size:18px;
+letter-spacing:2px;
+}
+
+.hero-place{
+font-size:16px;
+}
+
+.place-main{
+font-size:18px;
+}
+
+.place-sub{
+font-size:14px;
+}
+
+.invitation{
+margin:-40px 15px 40px;
+padding:20px;
+}
+
+.calendar{
+grid-template-columns:repeat(5,50px);
+gap:10px 12px;
+}
+
+.dresscode-image{
+border-radius:16px;
+}
+
+.final{
+font-size:26px;
+padding:50px 20px;
+}
+
 }
 
 </style>
@@ -329,8 +406,8 @@ color:#C77C96;
 <h1>Юля & Андрей</h1>
 <div class="hero-date">17 июня 2026</div>
 <div class="hero-place">
-«Двор Стайки»<br>
-Усадебно-парковый комплекс Богдановичей
+<div class="place-main">«Двор Стайки»</div>
+<div class="place-sub">Усадебно-парковый комплекс Богдановичей</div>
 </div>
 </div>
 </section>
@@ -338,7 +415,9 @@ color:#C77C96;
 <main class="invitation">
 
 <section class="block">
+
 <h2>Дата</h2>
+
 <p>Июнь 2026</p>
 
 <div class="calendar">
@@ -353,8 +432,7 @@ color:#C77C96;
 
 <div class="day active">
 <svg viewBox="0 0 24 24">
-<path fill="#E595AD"
-d="M12 21s-6.7-4.35-9.33-7.02C.5 11.78.5 8.5 2.74 6.24A4.3 4.3 0 0 1 9 6.2l3 3 3-3a4.3 4.3 0 0 1 6.26.04c2.24 2.26 2.24 5.54.07 7.74C18.7 16.65 12 21 12 21z"/>
+<path fill="#E595AD" d="M12 21s-6.7-4.35-9.33-7.02C.5 11.78.5 8.5 2.74 6.24A4.3 4.3 0 0 1 9 6.2l3 3 3-3a4.3 4.3 0 0 1 6.26.04c2.24 2.26 2.24 5.54.07 7.74C18.7 16.65 12 21 12 21z"/>
 </svg>
 <span>17</span>
 </div>
@@ -364,12 +442,34 @@ d="M12 21s-6.7-4.35-9.33-7.02C.5 11.78.5 8.5 2.74 6.24A4.3 4.3 0 0 1 9 6.2l3 3 3
 </div>
 
 <div id="countdown" class="countdown"></div>
+
 </section>
 
 <section class="block">
+
+<h2>Тайминг</h2>
+
+<div class="timeline">
+
+<div class="timeline-item">
+<div class="timeline-time">15:30</div>
+<div class="timeline-text">Сбор гостей</div>
+</div>
+
+<div class="timeline-item">
+<div class="timeline-time">16:00</div>
+<div class="timeline-text">Церемония</div>
+</div>
+
+</div>
+
+</section>
+
+<section class="block">
+
 <h2>Место проведения</h2>
 
-<img src="stayki.jpeg" class="place-photo">
+<img src="stayki.jpeg" class="place-photo" alt="Место проведения свадьбы">
 
 <p>
 <strong>«Двор Стайки»</strong><br>
@@ -390,6 +490,7 @@ d="M12 21s-6.7-4.35-9.33-7.02C.5 11.78.5 8.5 2.74 6.24A4.3 4.3 0 0 1 9 6.2l3 3 3
 </section>
 
 <section class="block">
+
 <h2>Дресс-код</h2>
 
 <p>
@@ -411,12 +512,13 @@ d="M12 21s-6.7-4.35-9.33-7.02C.5 11.78.5 8.5 2.74 6.24A4.3 4.3 0 0 1 9 6.2l3 3 3
 </p>
 
 <div class="dresscode-image-wrap">
-<img src="dresscode.jpg" class="dresscode-image">
+<img src="dresscode.jpg" alt="Примеры образов для дресс-кода" class="dresscode-image">
 </div>
 
 </section>
 
 <section class="block">
+
 <h2>Контакты</h2>
 
 <p>
@@ -425,11 +527,9 @@ d="M12 21s-6.7-4.35-9.33-7.02C.5 11.78.5 8.5 2.74 6.24A4.3 4.3 0 0 1 9 6.2l3 3 3
 </p>
 
 <div class="contact-card">
-
 <div class="contact-name">Ангелина</div>
 
 <div class="contact-actions">
-
 <a href="tel:+375255152782" class="contact-phone">
 +375 25 515 27 82
 </a>
@@ -440,9 +540,33 @@ d="M12 21s-6.7-4.35-9.33-7.02C.5 11.78.5 8.5 2.74 6.24A4.3 4.3 0 0 1 9 6.2l3 3 3
 </svg>
 <span>Написать в Telegram</span>
 </a>
+</div>
+</div>
 
+</section>
+
+<section class="block">
+
+<h2>Цветы</h2>
+
+<p>Мы очень любим цветы, но, к сожалению, не успеем насладиться их красотой.</p>
+
+<p>Вместо букета будем рады получить виниловую пластинку с вашим любимым исполнителем или бутылку вашего любимого алкоголя.</p>
+
+</section>
+
+<section class="block">
+
+<h2>Анкета гостя</h2>
+
+<p>Пожалуйста, подтвердите своё присутствие, заполнив анкету ниже</p>
+
+<div class="form-wrap">
+<iframe
+src="https://docs.google.com/forms/d/e/1FAIpQLSfjSRR-dOxG0Vyr6Znsb_P3IMDmIMh4VwFZfJqCC3KEq1NNEw/viewform?embedded=true">
+</iframe>
 </div>
-</div>
+
 </section>
 
 </main>
@@ -452,20 +576,23 @@ d="M12 21s-6.7-4.35-9.33-7.02C.5 11.78.5 8.5 2.74 6.24A4.3 4.3 0 0 1 9 6.2l3 3 3
 </div>
 
 <script>
-const target = new Date("June 17, 2026 15:30:00").getTime();
+
+const target = new Date("June 17, 2026 16:00:00").getTime();
 
 setInterval(function(){
+
 const now = new Date().getTime();
 const diff = target - now;
 
-const days = Math.floor(diff/(1000*60*60*24));
-const hours = Math.floor((diff%(1000*60*60*24))/(1000*60*60));
-const minutes = Math.floor((diff%(1000*60*60))/(1000*60));
+const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
 
 document.getElementById("countdown").innerHTML =
 "До свадьбы: " + days + " дней " + hours + " часов " + minutes + " минут";
 
-},1000);
+}, 1000);
+
 </script>
 
 </body>
